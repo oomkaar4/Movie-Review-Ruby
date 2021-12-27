@@ -1,0 +1,29 @@
+<br/>
+<h2 class="text-center">Director</h2>
+<div class="text-center">
+
+<br/>
+<strong>
+<%=@director.dir_f_name%>
+<%=@director.dir_l_name%>
+</strong>
+<ul>
+<br/>
+<%if current_user && current_user.admin?%>
+  <button class="btn btn-warning m-2"><%= link_to "Edit Name", edit_director_path(@director) %></button>
+  <button class="btn btn-danger m-1"><%= link_to "Delete Name", director_path(@director),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></button>
+<%end%>
+</div>
+
+<style>
+a{
+  text-decoration:none !important;
+  color:black;
+  /* font-size:20px; */
+}
+ul{
+  text-decoration:none !important;
+}
+</style>

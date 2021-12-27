@@ -1,0 +1,41 @@
+<h2 class="text-center">Actor-ID</h2>
+<div class="container">
+<div class="row d-felx justify-content-center">
+  <div class="col-sm-6">
+    <div class="card">
+
+<ul>
+<li>
+<%=@actor.actor_f_name%>
+<%=@actor.actor_l_name%>
+<%=@actor.actor_gender%>
+<%= render @actor.movies%>
+
+
+</li>
+</ul>
+
+<ul>
+ <%if current_user && current_user.admin?%>
+  <button class="btn btn-warning">
+  <div class="edit-actor">
+  <%= link_to "Edit Actor", edit_actor_path(@actor),data: {remote: true}%>
+  </div>
+  </button>
+  <button class="btn btn-danger"><%= link_to "Destroy Actor", actor_path(@actor),
+                  method: :delete,
+                  data: { confirm: "Are you sure?",remote: true }, :class=>'delete_actor' %></button>
+                  <%end%>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<style>
+a{
+  color:black ;
+  text-decoration:none !important;
+}
+</style>

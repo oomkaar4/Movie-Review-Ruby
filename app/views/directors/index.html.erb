@@ -1,0 +1,30 @@
+<br/>
+<h2 class="text-center">Director List</h2>
+<br/>
+<table class="table table-striped d-flex justify-content-center" >
+<tr>
+<th>Director First Name</th>
+<th>Director Last Name</th>
+</tr>
+<%@directors.each do|director|%>
+<tr>
+<td><%= link_to director.dir_f_name,director%></td>
+<td><p><%=director.dir_l_name%></p></td>
+</tr>
+<%end%>
+</table>
+<style>
+th,tr{
+    text-align:center;
+}
+a{
+    text-decoration:none !important;
+    color:white;
+}
+td{
+    color:white;
+}
+p{
+    color:white;
+}
+</style>

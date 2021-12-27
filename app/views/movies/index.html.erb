@@ -1,0 +1,73 @@
+<br/>
+<div class="container">
+<br/>
+<!--
+<h2 class="text-center">All India Movies</h2>
+<br/>
+<table  class="table table-success table-striped ">
+<tr>
+<th>Movie Title</th>
+<th>Movie Release Date</th>
+<th>Movie Budget (in Cr)</th>
+</tr>
+<%@movies.each do|movie|%>
+<tr>
+
+<td><%= link_to movie.title,movie %></td>
+<td><%=movie.release_date%></td>
+<td><%=movie.budget%></td>
+</tr>
+<%end%>
+</table>
+</div>-->
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+<%@movies.each do|movie|%>
+  <div class="col ">
+    <div class="card h-100">
+      <img src="<%=movie.attachment%>" class="card-img-top " alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%=movie.title%></h5>
+        <%=link_to "Show Movie Details",movie,class:'btn  btn-outline-info'%>
+      </div>
+    </div>
+  </div>
+  <%end%>
+  </div>
+</div>
+<style>
+/* table, th, td {
+  border:1px solid black;
+  text-align:center;
+  
+}*/
+ .card{
+  width:100%;
+} 
+/*table{
+  width:auto;
+} */
+a{
+  text-decoration: none !important;
+    color: black;
+}
+button{
+  margin:6px 85px;
+}
+img{
+  height:500px;
+}
+/* .column{
+  float:left;
+  width:30%;
+  padding:0 10px;
+}
+.row{
+  margin:0 -5px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+} */
+</style>

@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+<%= form_with model: movie  do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title,placeholder: "Enter Movie Name" %>
+    <% movie.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :release_date %><br>
+    <%= form.text_field :release_date,placeholder: "yy-mm-dd",type:'date' %>
+    <% movie.errors.full_messages_for(:release_date).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :budget %><br>
+    <%= form.text_field :budget ,placeholder: "Enter Movie Budget"%>
+    <% movie.errors.full_messages_for(:budget).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <br/>
+  <div>
+        
+      <%= form.file_field :attachment,accept: 'image/png,image/gif,image/jpeg' %>   
+  </div>
+  <br/>
+  <label>Add Actors</label>
+  <%=form.collection_select :actor_id, Actor.order(:actor_f_name), :id, :actor_f_name %><br/><br/>
+  
+  <label>ADD Genere</label>
+  <%=form.collection_select :gener_id, Gener.order(:gener_title), :id, :gener_title %>
+   <br/><br/>
+   <label>Add Director</label>
+   <%=form.collection_select :director_id, Director.order(:dir_f_name), :id, :dir_f_name %><br/><br/>
+  <button class="btn btn-primary" style="color:red;"><%= form.submit %></button>
+<% end %>
+</div>

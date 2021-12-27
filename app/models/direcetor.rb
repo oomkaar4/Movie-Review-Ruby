@@ -1,0 +1,2 @@
+class Direcetor < ApplicationRecord
+end

@@ -1,0 +1,98 @@
+<br/>
+
+<br/>
+  <div class="container">
+<div class="row">
+  <div class="column">
+  <div class="information">
+     <h5 class="card-title text-center" style="color:white;"><%=@movie.title%></h5>
+        <p class="card-text"><b>Relase-Date: </b><%=@movie.release_date%></p>
+        <p class="card-text"><b> Movie Budget in Cr: </b><%=@movie.budget%></p>
+        <p class="card-text"><b>Director:</b><%= render @movie.directors %></p>
+        <p class="card-text"><b>Actor:</b><%=render @movie.actors%></p>
+      
+        <p class="card-text"><b>Genere:</b><%=render @movie.geners%><br/>
+        <%if current_user && current_user.admin?%>
+          <button class="btn btn-warning m-2"><%= link_to "Edit Movies", edit_movie_path(@movie),data: {remote: true} %></button>
+        <button class="btn btn-danger m-2"><%= link_to "Delete Movies", movie_path(@movie),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %></button>
+      <%end%>
+    <div >
+  <br/>
+  <h4 class="header" style="color:white;">Ratings :</h4><br/>
+  <p class="ratings">
+    <%=render @movie.movies_reviewers %>
+    
+<p id="notice"><%= notice %></p>
+  </p>
+  </div>
+  </div>   
+  </div>
+  <div class="column">
+  <img src="<%=@movie.attachment%>" class="img-thumbnail" alt="images" />
+  </div>
+  </div>
+  </div>
+
+  <style>
+  /* .section{
+    width:90%;
+  }
+  p{
+    text-align:center;
+  }
+  
+  img{
+    height: 445px;
+    width: 60%;
+    margin: 0px 139px;
+  }
+   
+.infomation {
+    display: flex;
+    justify-content: flex-end;
+} 
+  .image::before{
+     margin-top: -45rem;
+    margin-right: -87px;
+    
+  } */
+  .column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+p{
+    text-align:center;
+    color:white;
+  }
+  
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+a{
+    text-decoration: none !important;
+    color: black ;
+  }
+  .image {
+    margin-top: -25rem;
+    margin-right: -87px;
+    width:582px;
+    height:408px;
+}
+.header{
+  margin-left:14rem;
+}
+.information{
+  margin:161px 0px;
+}
+* {
+  box-sizing: border-box;
+}
+
+  </style>

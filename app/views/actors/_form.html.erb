@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-center align-item-center">
+<%= form_with model: actor do |form| %>
+  <div>
+    <%= form.label :actor_f_name %> 
+    
+    <%= form.text_field :actor_f_name ,placeholder: "Enter First Name"%>
+    <% actor.errors.full_messages_for(:actor_f_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+    
+  </div>
+  <br/>
+  <div>
+    <%= form.label :actor_l_name %> 
+    <%= form.text_field :actor_l_name,placeholder: "Enter Last Name" %>
+    <% actor.errors.full_messages_for(:actor_l_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+  <br/>
+    <%= form.label :actor_gender %>:<br/>
+    <%= form.radio_button :actor_gender ,"Male" %>Male
+    <%= form.radio_button :actor_gender ,"Female" %>Female<br/>
+    <% actor.errors.full_messages_for(:actor_gender).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+</div>
+<div>
+
+
+ <br/>
+  <div>
+ <button class="btn btn-outline-primary">   <%= form.submit %> </button>
+  </div>
+<% end %>

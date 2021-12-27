@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ImdbMovies</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body style="background-color:dimgrey;">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href='/'  >ImdbMovies</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" aria-current="page" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="/movies" >Home</a>
+           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <li><a class="dropdown-item" href="/movies">Movie Home</a></li>
+            <li><a class="dropdown-item" href="/movies/new">Add New Movie</a></li>
+            </ul>
+        </li>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/actors" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Actor</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <li><a class="dropdown-item" href="/actors">Actors Home</a></li>
+            <li><a class="dropdown-item" href="/actors/new">Add New Actor</a></li>
+            </ul>
+        </li>
+        <!--<li class="nav-item">
+          <a class="nav-link" href="/directors">Director</a>
+        </li>-->
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle" href="/directors" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Director
+          </a>
+          <ul class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
+          <li><a class="dropdown-item" href="/directors">Director Home</a></li>
+            <li><a class="dropdown-item" href="/directors/new">New Director</a></li>
+          </ul>
+        </li>
+        <%if user_signed_in?%>
+      <li class="nav-item">
+      <%=link_to "Edit Profile",edit_user_registration_path,class:"nav-link"%>
+      </li>
+      <li class="nav-item">
+      <%=link_to "Sign Out", destroy_user_session_path,method: :delete,class:"nav-link"%>
+      </li>
+      <%else%>
+      <li class="nav-item">
+      <%=link_to "Sign Up",new_user_registration_path,class:"nav-link"%>
+      </li>
+      <li class="nav-item">
+      <%=link_to "Sign In", new_user_session_path,class:"nav-link"%>
+      </li>
+    <%end%>
+      </ul>
+      
+          </div>
+  </div>
+  
+</nav>
+  <%# <div class="notice">
+    <%= notice %>
+    </div>
+    <% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+    <%= yield %>
+  </body>
+</html>

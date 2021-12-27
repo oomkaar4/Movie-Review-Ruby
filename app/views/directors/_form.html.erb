@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-center align-item-center">
+<%= form_with model: director do |form| %>
+  <div>
+    <%= form.label :dir_f_name %><br>
+    <%= form.text_field :dir_f_name,placeholder: "Enter First Name" %>
+    <% director.errors.full_messages_for(:dir_f_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :dir_l_name %><br>
+    <%= form.text_field :dir_l_name,placeholder: "Enter Last Name" %>
+    <% director.errors.full_messages_for(:dir_l_name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <!--<div>
+    <%= form.label :actor_gender %><br>
+    <%= form.text_field :actor_gender %>
+    <% director.errors.full_messages_for(:actor_gender).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>-->
+
+
+<br/> 
+  <div>
+    <button class="btn btn-dark "><%= form.submit %></button>
+  </div>
+<% end %>
+</div>
